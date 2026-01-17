@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Circuit Hub | Official Site</title>
+    <style>
+        :root { --bg: #0f172a; --card: #1e293b; --accent: #38bdf8; --text: #f8fafc; }
+        body { background-color: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        header { background: linear-gradient(90deg, #0ea5e9, #2563eb); padding: 40px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .project-card { background: var(--card); border-radius: 12px; margin-bottom: 40px; overflow: hidden; border: 1px solid #334155; }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .project-info { padding: 25px; }
+        h2 { color: var(--accent); margin-top: 0; }
+        .code-block { background: #000; color: #00ff00; padding: 15px; border-radius: 8px; font-family: monospace; overflow-x: auto; margin-top: 15px; border: 1px solid #334155; font-size: 14px; display: none; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .btn { flex: 1; text-align: center; padding: 12px; text-decoration: none; border-radius: 6px; font-weight: bold; cursor: pointer; border: none; transition: 0.3s; }
+        .btn-code { background: #334155; color: white; }
+        .btn-yt { background: #ef4444; color: white; }
+        .btn:hover { opacity: 0.8; }
+        footer { text-align: center; padding: 40px; opacity: 0.6; }
+    </style>
+    <script>
+        function toggleCode(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "none" || x.style.display === "") { x.style.display = "block"; } 
+            else { x.style.display = "none"; }
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>DIGITAL CIRCUIT HUB</h1>
+    <p>Arduino • ESP32 • IoT • Smart Home Solutions</p>
+</header>
+
+<div class="container">
+
+    <div class="project-card">
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/p8s_IQVnNCM" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+            <h2>Arduino R3 VS Arduino NANO</h2>
+            <p>A full comparison of the specs and pins for the Uno R3 and Nano boards.</p>
+            <div class="btn-group">
+                <button class="btn btn-code" onclick="toggleCode('code1')">View Details</button>
+                <a href="https://youtu.be/p8s_IQVnNCM" class="btn btn-yt" target="_blank">YouTube</a>
+            </div>
+            <div id="code1" class="code-block">
+                // BOARD SPECS // <br>
+                - Arduino Uno: 5V, 14 Digital Pins, 6 Analog Pins.<br>
+                - Arduino Nano: 5V, 14 Digital Pins, 8 Analog Pins (Small size).
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/327EM9NwRPk" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+            <h2>Running Light with Arduino</h2>
+            <p>Control multiple LEDs to create a sequential running effect.</p>
+            <div class="btn-group">
+                <button class="btn btn-code" onclick="toggleCode('code2')">Get Code</button>
+                <a href="https://youtu.be/327EM9NwRPk" class="btn btn-yt" target="_blank">YouTube</a>
+            </div>
+<pre id="code2" class="code-block">
+void setup() {
+  for(int i=2; i<=7; i++) pinMode(i, OUTPUT);
+}
+void loop() {
+  for(int i=2; i<=7; i++) {
+    digitalWrite(i, HIGH); delay(100); digitalWrite(i, LOW);
+  }
+}</pre>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/GwW1PmGaxBk" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+            <h2>Stop Messy Wiring (I2C LCD)</h2>
+            <p>How to use an I2C module to control an LCD with only 4 wires.</p>
+            <div class="btn-group">
+                <button class="btn btn-code" onclick="toggleCode('code3')">Get Code</button>
+                <a href="https://youtu.be/GwW1PmGaxBk" class="btn btn-yt" target="_blank">YouTube</a>
+            </div>
+<pre id="code3" class="code-block">
+#include &lt;Wire.h&gt; 
+#include &lt;LiquidCrystal_I2C.h&gt;
+LiquidCrystal_I2C lcd(0x27,16,2); 
+void setup() {
+  lcd.init(); lcd.backlight();
+  lcd.print("Digital Circuit");
+}</pre>
+        </div>
+    </div>
+
+</div>
+
+<footer>© 2026 Digital Circuit Hub • Built with Notepad</footer>
+</body>
+</html>
